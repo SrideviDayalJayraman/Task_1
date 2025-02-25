@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: transparent;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-around;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+        .navbar.scrolled {
+            background-color: #003366;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #00B5AD;
+            color: white;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 100px 20px;
+            height: 200vh;
+            background: linear-gradient(to bottom, #FF6600, #FFFFF0);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="content">
+        <h1>Welcome to Our Landing Page</h1>
+        <p>Scroll down to see the navbar change.</p>
+    </div>
+    <script>
+        window.addEventListener("scroll", function () {
+            var navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
